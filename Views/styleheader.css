@@ -1,0 +1,112 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family:'Poppins', sans-serif;
+    text-decoration: none;
+}
+
+:root {
+    --shadow-color: 0deg 0% 0%;
+    --shadow-elevation-low: -1px 1px 1.6px hsl(var(--shadow-color) / 0.12),
+      -1.7px 1.7px 2.7px -1.2px hsl(var(--shadow-color) / 0.12),
+      -4.3px 4.3px 6.8px -2.5px hsl(var(--shadow-color) / 0.12);
+    --shadow-elevation-medium: -1px 1px 1.6px hsl(var(--shadow-color) / 0.13),
+      -3.5px 3.5px 5.6px -0.8px hsl(var(--shadow-color) / 0.13),
+      -8.8px 8.8px 14px -1.7px hsl(var(--shadow-color) / 0.13),
+      -21.6px 21.6px 34.4px -2.5px hsl(var(--shadow-color) / 0.13);
+    --shadow-elevation-high: -1px 1px 1.6px hsl(var(--shadow-color) / 0.12),
+      -6.6px 6.6px 10.5px -0.4px hsl(var(--shadow-color) / 0.12),
+      -12.5px 12.5px 19.9px -0.7px hsl(var(--shadow-color) / 0.12),
+      -20.6px 20.6px 32.8px -1.1px hsl(var(--shadow-color) / 0.12),
+      -33px 33px 52.5px -1.4px hsl(var(--shadow-color) / 0.12),
+      -51.7px 51.7px 82.3px -1.8px hsl(var(--shadow-color) / 0.12),
+      -78.7px 78.7px 125.2px -2.1px hsl(var(--shadow-color) / 0.12),
+      -116px 116px 184.6px -2.5px hsl(var(--shadow-color) / 0.12);
+    --color1: #7494bc;
+    --color2: #f28537;
+    --color3: #4f6c9b;
+    --tran2: all 0.2s ease;
+    --tran3: all 0.3s ease;
+    --tran4: all 0.4s ease;
+    --tran5: all 0.5s ease;
+  }
+
+header{
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: var(--color1);
+    width: 100%;
+    padding: 20px;
+    box-shadow: 0 .5rem 1rem #52525233;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 1000;
+}
+
+.logo{
+    height: 5rem;
+}
+
+.navbar a{
+    font-size: 1.3rem;
+    margin-left: 1rem;
+    color: white;
+}
+
+.navbar a:hover{
+    color: var(--color2);
+}
+
+header input{
+    display: none;
+}
+
+header label{
+    font: 2.3rem;
+    color: #6c2284;
+    cursor: pointer;
+    visibility: hidden;
+    opacity: 0;
+}
+
+@media (max-width: 1100px){
+    header label{
+        visibility: visible;
+        opacity: 1;
+    }
+
+    .navbar{
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: var(--color1);
+        padding: 1rem 2rem;
+        border-top: solid .1rem #0000004d;
+        box-shadow: 0 .5rem 1rem #0000001a;
+        transform-origin: top;
+        transform: scaleY(0);
+        opacity: 0;
+        transform: .2s linear;
+    }
+
+    header input:checked ~ .navbar{
+        transform: scaleY(1);
+        opacity: 1;
+    }  
+
+    header input:checked ~ label::before{
+        content: '\f00d';
+    }
+
+    .navbar a{
+        display: block;
+        margin: 1.4rem 0;
+        font-size: 1.3rem;
+
+    }
+
+}
